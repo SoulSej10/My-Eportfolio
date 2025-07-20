@@ -10,7 +10,7 @@ export default function About() {
           <br /><br />
           During my academic years and internship, I honed my backend skills using .NET, developed mobile apps with Flutter, and built responsive websites using React and Tailwind.
           <br /><br />
-          I enjoy collaborating on meaningful projects, learning new tech, and creating tools that bring value to users. Whether it's through efficient code, clear documentation, or seamless UI/UX—I strive to deliver work that speaks for itself.
+          I enjoy collaborating on meaningful projects, learning new tech, and creating tools that bring value to users. Whether it&apos;s through efficient code, clear documentation, or seamless UI/UX—I strive to deliver work that speaks for itself.
           <br /><br />
           When I&apos;m not coding, I love exploring ideas on freelancing, business, and tech innovations that solve real-world problems.
         </p>
