@@ -17,7 +17,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-800">
-          Jess Anthony Tahil <span className="text-sm font-light text-gray-500">(Sej)</span>
+          Jess Anthony Tahil (Sej)<span className="text-sm font-light text-gray-500"></span>
         </h1>
 
         {/* Desktop Navigation */}
