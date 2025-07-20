@@ -34,7 +34,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Projects</h2>
         <p className="text-gray-600 mb-12">
-          Here are a few projects I've worked on, both personal and academic.
+          Here are a few projects I&apos;ve worked on, both personal and academic.
         </p>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

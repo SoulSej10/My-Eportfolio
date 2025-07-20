@@ -8,7 +8,7 @@ export default function Hero() {
       className="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-gradient-to-b from-white to-gray-100"
     >
       <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Hi, I’m <span className="text-blue-600">Jess Tahil</span>
+        Hi, I&apos;m <span className="text-blue-600">Jess Tahil</span>
       </h1>
       <p className="text-gray-600 text-lg md:text-xl max-w-2xl mb-6">
         Aspiring Full Stack Developer & IT Graduate passionate about creating user-friendly digital experiences.
