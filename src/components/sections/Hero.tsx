@@ -32,9 +32,14 @@ export default function HeroSection() {
             Aspiring Full Stack Developer & IT Graduate passionate about creating user-friendly digital experiences.
           </p>
 
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
-            Download CV
-          </Button>
+          <a
+            href="/files/Tahil,%20Jess%20Anthony%20M.%20-%20Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+          >
+            View CV
+          </a>
         </div>
       </div>
     </section>

@@ -50,10 +50,11 @@ export default function ContactForm() {
           <label className="block text-left font-medium text-gray-700">Name</label>
           <input
             type="text"
+            placeholder="Enter your full name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-base shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
           />
         </div>
 
@@ -61,21 +62,23 @@ export default function ContactForm() {
           <label className="block text-left font-medium text-gray-700">Email</label>
           <input
             type="email"
+            placeholder="Enter your email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-base shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
           />
         </div>
 
         <div>
           <label className="block text-left font-medium text-gray-700">Message</label>
           <textarea
+            placeholder="Write your message here..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
             rows={5}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-base shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
           ></textarea>
         </div>
 

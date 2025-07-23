@@ -58,9 +58,9 @@ export default function SkillsSection() {
                 height={48}
                 className="object-contain"
               />
-              <span className="text-sm text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {skill.name}
-              </span>
+                <span className="text-sm text-gray-600 mt-2 transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                  {skill.name}
+                </span>
             </div>
           ))}
         </div>
