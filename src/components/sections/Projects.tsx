@@ -12,7 +12,7 @@ const projects: Project[] = [
     title: 'E-Portfolio Website',
     description: 'A personal website to showcase my background, achievements, and projects using Next.js and Tailwind CSS.',
     tech: ['Next.js', 'Tailwind CSS', 'TypeScript'],
-    link: '#',
+    link: 'https://my-eportfolio-two.vercel.app/',
   },
   {
     title: 'Purchase Request Module (RAFI)',
