@@ -25,7 +25,7 @@ export default function HeroSection() {
         {/* Right Side - Content */}
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left space-y-6">
           <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-            Hi, I'm <span className="text-blue-600">Jess Anthony M. Tahil</span>
+            Hi, I&apos;m <span className="text-blue-600">Jess Anthony M. Tahil</span>
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-md">
