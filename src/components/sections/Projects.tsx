@@ -15,16 +15,10 @@ const projects: Project[] = [
     link: 'https://my-eportfolio-two.vercel.app/',
   },
   {
-    title: 'Purchase Request Module (RAFI)',
-    description: 'Backend implementation of a procurement feature during my OJT at RAFI Microfinance.',
-    tech: ['.NET 8', 'Postman', 'D365', 'Swagger'],
-    link: '#',
-  },
-  {
-    title: 'Mobile Task Manager',
-    description: 'A simple Flutter app for managing tasks and reminders on the go.',
-    tech: ['Flutter', 'Dart', 'GetX'],
-    link: '#',
+    title: 'CipherLab',
+    description: 'A Django web application deployed on PythonAnywhere showcasing core skills in backend and frontend development.',
+    tech: ['Python', 'Django', 'HTML', 'CSS', 'JavaScript'],
+    link: 'https://jessanthony10.pythonanywhere.com/',
   },
 ]
 
