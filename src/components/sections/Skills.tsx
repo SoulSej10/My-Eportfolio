@@ -1,67 +1,77 @@
 'use client'
 
-import Image from "next/image"
+import { Code2, Server, Smartphone, Database, Cloud, Palette } from 'lucide-react'
+import { GlassCard } from '@/components/ui/GlassCard'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { skillCategories } from '@/lib/data'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
-const skills = [
-  { name: "ASP.NET", src: "/images/aspnet-svgrepo-com.svg" },
-  { name: ".NET 7 & 8", src: "/images/dotnet-svgrepo-com.svg" },
-  { name: "RESTful API", src: "/images/rest-api-svgrepo-com.svg" },
-  { name: "Django", src: "/images/django-icon-svgrepo-com.svg" },
-  { name: "Visual Studio", src: "/images/visual-studio-svgrepo-com.svg" },
-  { name: "VS Code", src: "/images/visual-studio-code-svgrepo-com.svg" },
-  { name: "Postman", src: "/images/postman-icon-svgrepo-com.svg" },
-  { name: "Swagger", src: "/images/swagger-svgrepo-com.svg" },
-  { name: "Git", src: "/images/git-svgrepo-com.svg" },
-  { name: "GitHub", src: "/images/github-142-svgrepo-com.svg" },
-  { name: "GitLab", src: "/images/gitlab-svgrepo-com.svg" },
-  { name: "CI/CD", src: "/images/ci-cd-svgrepo-com.svg" },
-  { name: "SQL", src: "/images/sql-database-generic-svgrepo-com.svg" },
-  { name: "MongoDB", src: "/images/mongodb-svgrepo-com.svg" },
-  { name: "Firebase", src: "/images/firebase-svgrepo-com.svg" },
-  { name: "AWS", src: "/images/aws-svgrepo-com.svg" },
-  { name: "HTML", src: "/images/html-5-svgrepo-com.svg" },
-  { name: "CSS", src: "/images/css-3-svgrepo-com.svg" },
-  { name: "JavaScript", src: "/images/javascript-svgrepo-com.svg" },
-  { name: "C#", src: "/images/c-sharp-800x800.png" },
-  { name: "Python", src: "/images/python-svgrepo-com.svg" },
-  { name: "Bootstrap", src: "/images/bootstrap-svgrepo-com.svg" },
-  { name: "Tailwind", src: "/images/tailwind-svgrepo-com.svg" },
-  { name: "Shadcn UI", src: "/images/shadcn-logo_svgstack_com_31341753251234.svg" },
-  { name: "Flutter", src: "/images/flutter-svgrepo-com.svg" },
-  { name: "Xamarin", src: "/images/xamarin-svgrepo-com.svg" },
-  { name: "Figma", src: "/images/figma-svgrepo-com.svg" },
-  { name: "Canva", src: "/images/canva-svgrepo-com.svg" },
-  { name: "Azure", src: "/images/azure-svgrepo-com.svg" },
-  { name: "Agile", src: "/images/agile-svgrepo-com.svg" },
-  { name: "Scrum", src: "/images/scrum-svgrepo-com.svg" },
-]
+const iconMap: Record<string, React.ReactNode> = {
+  code: <Code2 className="w-5 h-5" />,
+  server: <Server className="w-5 h-5" />,
+  smartphone: <Smartphone className="w-5 h-5" />,
+  database: <Database className="w-5 h-5" />,
+  cloud: <Cloud className="w-5 h-5" />,
+  palette: <Palette className="w-5 h-5" />,
+}
 
-export default function SkillsSection() {
+export default function Skills() {
+  const { ref, isVisible } = useScrollAnimation()
+
   return (
-    <section className="bg-white py-16 px-6 md:px-20">
-      <div className="max-w-6xl mx-auto text-center space-y-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">💻 Skills & Technologies</h2>
-        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          I&apos;m well-versed in a diverse set of tools, programming languages, frameworks, and development practices that enable me to build full-stack applications, collaborate efficiently with teams, and deliver high-quality solutions.
-        </p>
+    <section
+      id="skills"
+      ref={ref}
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background pointer-events-none" />
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 items-center justify-center mt-10">
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className="group flex flex-col items-center justify-center h-24 p-2 transition-transform duration-300 ease-in-out hover:scale-110 hover:bg-gray-100 rounded-xl shadow-sm hover:shadow-md"
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <SectionHeader
+          title="Skills & Technologies"
+          subtitle="Tools and technologies I work with to bring ideas to life"
+        />
+
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          {skillCategories.map((category, i) => (
+            <GlassCard
+              key={category.title}
+              className="p-6"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
-              <Image
-                src={skill.src}
-                alt={skill.name}
-                width={48}
-                height={48}
-                className="object-contain"
-              />
-                <span className="text-sm text-gray-600 mt-2 transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100">
-                  {skill.name}
-                </span>
-            </div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  {iconMap[category.icon] || <Code2 className="w-5 h-5" />}
+                </div>
+                <h3 className="font-semibold text-base">{category.title}</h3>
+              </div>
+
+              <div className="space-y-4">
+                {category.skills.map((skill) => (
+                  <div key={skill.name}>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {skill.years}y
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-surface-2 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-primary to-accent-2 transition-all duration-1000 ease-out"
+                        style={{
+                          width: isVisible ? `${skill.level}%` : '0%',
+                          transitionDelay: `${i * 100 + 200}ms`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </GlassCard>
           ))}
         </div>
       </div>

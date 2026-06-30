@@ -1,19 +1,89 @@
 'use client'
 
+import { Download, MapPin, GraduationCap, Briefcase, Code2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { GlassCard } from '@/components/ui/GlassCard'
+import { personalInfo } from '@/lib/data'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+
 export default function About() {
+  const { ref: sectionRef, isVisible } = useScrollAnimation()
+
   return (
-    <section id="about" className="py-20 px-6 bg-gray-50">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">About Me</h2>
-        <p className="text-gray-700 text-lg leading-relaxed">
-          Hello! I&apos;m Jess, an Information Technology graduate passionate about building intuitive and purposeful digital experiences.  
-          <br /><br />
-          During my academic years and internship, I honed my backend skills using .NET, developed mobile apps with Flutter, and built responsive websites using React and Tailwind.
-          <br /><br />
-          I enjoy collaborating on meaningful projects, learning new tech, and creating tools that bring value to users. Whether it&apos;s through efficient code, clear documentation, or seamless UI/UX—I strive to deliver work that speaks for itself.
-          <br /><br />
-          When I&apos;m not coding, I love exploring ideas on freelancing, business, and tech innovations that solve real-world problems.
-        </p>
+    <section
+      id="about"
+      ref={sectionRef}
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="section-heading mb-4">
+            <span className="gradient-text">About Me</span>
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+            Get to know the developer behind the code
+          </p>
+        </div>
+
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-5 gap-8 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="lg:col-span-3 space-y-6">
+            <GlassCard className="space-y-4">
+              {personalInfo.about.map((paragraph, i) => (
+                <p key={i} className="text-muted-foreground leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+              <div className="pt-4">
+                <Button
+                  variant="primary"
+                  href={personalInfo.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download className="w-4 h-4" />
+                  Download Resume
+                </Button>
+              </div>
+            </GlassCard>
+          </div>
+
+          <div className="lg:col-span-2 space-y-6">
+            <GlassCard>
+              <h3 className="font-semibold text-lg mb-4">Quick Facts</h3>
+              <div className="space-y-4">
+                {personalInfo.quickFacts.map((fact, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      {i === 0 && <MapPin className="w-4 h-4 text-primary" />}
+                      {i === 1 && <GraduationCap className="w-4 h-4 text-primary" />}
+                      {i === 2 && <Briefcase className="w-4 h-4 text-primary" />}
+                      {i === 3 && <Code2 className="w-4 h-4 text-primary" />}
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">{fact.label}</p>
+                      <p className="font-medium text-sm">{fact.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </GlassCard>
+
+            <GlassCard>
+              <h3 className="font-semibold text-lg mb-4">Developer Philosophy</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                &ldquo;I believe great software is built at the intersection of clean code,
+                thoughtful design, and real user value. Every project is an opportunity
+                to learn, improve, and create something meaningful.&rdquo;
+              </p>
+            </GlassCard>
+          </div>
+        </div>
       </div>
     </section>
   )

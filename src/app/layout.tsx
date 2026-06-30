@@ -1,25 +1,57 @@
-import './globals.css'
-import { Poppins } from 'next/font/google'
-import Navbar from '@/components/layout/Navbar'
+import type { Metadata } from "next"
+import { Inter, JetBrains_Mono } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "@/components/layout/ThemeProvider"
+import Navbar from "@/components/layout/Navbar"
+import ScrollProgress from "@/components/ui/ScrollProgress"
+import BackToTop from "@/components/ui/BackToTop"
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // you can customize weights
+  variable: "--font-inter",
   display: "swap",
-  variable: "--font-poppins",
-});
+})
 
-export const metadata = {
-  title: "Jess' E-Portfolio",
-  description: "Built with Next.js, React, Tailwind, and Shadcn UI",
-};
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+})
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: "Jess Anthony Tahil | Full-Stack Developer",
+  description:
+    "Full-Stack Developer & IT Graduate passionate about building intuitive, performant digital experiences. Explore my portfolio, projects, and skills.",
+  keywords: [
+    "full-stack developer",
+    "web developer",
+    "react",
+    "next.js",
+    "portfolio",
+    "jess anthony tahil",
+  ],
+  openGraph: {
+    title: "Jess Anthony Tahil | Full-Stack Developer",
+    description:
+      "Full-Stack Developer & IT Graduate building polished, production-quality applications.",
+    type: "website",
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className={poppins.className}>
-      <body>
-        <Navbar />
-        <main className="pt-20">{children}</main> {/* Add padding top to avoid nav overlap */}
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className="antialiased">
+        <ThemeProvider>
+          <Navbar />
+          <ScrollProgress />
+          <main className="min-h-screen">{children}</main>
+          <BackToTop />
+        </ThemeProvider>
       </body>
     </html>
   )

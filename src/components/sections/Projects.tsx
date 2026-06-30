@@ -1,69 +1,183 @@
 'use client'
 
-type Project = {
-  title: string
-  description: string
-  tech: string[]
-  link?: string
-}
-
-const projects: Project[] = [
-  {
-    title: 'E-Portfolio Website',
-    description: 'A personal website to showcase my background, achievements, and projects using Next.js and Tailwind CSS.',
-    tech: ['Next.js', 'Tailwind CSS', 'TypeScript'],
-    link: 'https://my-eportfolio-two.vercel.app/',
-  },
-  {
-    title: 'CipherLab',
-    description: 'A Django web application deployed on PythonAnywhere showcasing core skills in backend and frontend development.',
-    tech: ['Python', 'Django', 'HTML', 'CSS', 'JavaScript'],
-    link: 'https://jessanthony10.pythonanywhere.com/',
-  },
-]
+import { ExternalLink, Github, CheckCircle2, ArrowUpRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/Badge'
+import { GlassCard } from '@/components/ui/GlassCard'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { projects } from '@/lib/data'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function Projects() {
+  const { ref, isVisible } = useScrollAnimation()
+
+  const featuredProjects = projects.filter((p) => p.isFeatured)
+  const otherProjects = projects.filter((p) => !p.isFeatured)
+
   return (
-    <section id="projects" className="py-20 px-6 bg-white">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Projects</h2>
-        <p className="text-gray-600 mb-12">
-          Here are a few projects I&apos;ve worked on, both personal and academic.
-        </p>
+    <section
+      id="projects"
+      ref={ref}
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background pointer-events-none" />
 
-        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow hover:shadow-lg transition"
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <SectionHeader
+          title="Featured Projects"
+          subtitle="A showcase of my best work — production applications built with modern technologies"
+        />
+
+        <div
+          className={`space-y-16 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          {featuredProjects.map((project, i) => (
+            <GlassCard
+              key={project.title}
+              className="p-6 sm:p-8 lg:p-10"
             >
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
-              <p className="text-sm text-gray-600 mb-4">{project.description}</p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Badge variant="primary">{project.category}</Badge>
+                    <Badge variant="success">{project.status}</Badge>
+                  </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full"
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-3">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {project.longDescription}
+                  </p>
+
+                  <div className="space-y-2 mb-6">
+                    {project.features.map((feature, fi) => (
+                      <div key={fi} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="outline">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
+                    <Button
+                      variant="gradient"
+                      size="md"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                      <ArrowUpRight className="w-3 h-3" />
+                    </Button>
+                    {project.github && (
+                      <Button
+                        variant="secondary"
+                        size="md"
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4" />
+                        Source Code
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group relative rounded-2xl overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-primary/5 to-accent-2/5"
                   >
-                    {tech}
-                  </span>
-                ))}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-4xl font-bold gradient-text mb-2">
+                          {project.title === 'StocklaneOS' ? 'StocklaneOS' : 'Taccuino'}
+                        </div>
+                        <div className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
+                          Click to view live <ArrowUpRight className="w-3 h-3" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </a>
+                </div>
               </div>
-
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 text-sm hover:underline"
-                >
-                  View Project →
-                </a>
-              )}
-            </div>
+            </GlassCard>
           ))}
         </div>
+
+        {otherProjects.length > 0 && (
+          <div className="mt-20">
+            <h3 className="text-xl font-semibold mb-8 text-center">
+              More Projects
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {otherProjects.map((project) => (
+                <GlassCard key={project.title} className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Badge variant="primary">{project.category}</Badge>
+                    <Badge variant="success">{project.status}</Badge>
+                  </div>
+
+                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    {project.longDescription}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="outline">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      Live Demo
+                    </Button>
+                    {project.github && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        Code
+                      </Button>
+                    )}
+                  </div>
+                </GlassCard>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
