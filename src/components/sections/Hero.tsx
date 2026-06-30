@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { ArrowDown, FileText, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { personalInfo } from '@/lib/data'
+import ParticleBackground from '@/components/effects/ParticleBackground'
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -31,6 +32,8 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden"
     >
+      <ParticleBackground />
+
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-background pointer-events-none" />
 
       <div

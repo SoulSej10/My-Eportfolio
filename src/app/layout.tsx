@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import Navbar from "@/components/layout/Navbar"
 import ScrollProgress from "@/components/ui/ScrollProgress"
 import BackToTop from "@/components/ui/BackToTop"
+import CursorGlow from "@/components/ui/CursorGlow"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,10 +46,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <body className="antialiased">
+<body className="antialiased">
         <ThemeProvider>
           <Navbar />
           <ScrollProgress />
+          <CursorGlow />
           <main className="min-h-screen">{children}</main>
           <BackToTop />
         </ThemeProvider>
