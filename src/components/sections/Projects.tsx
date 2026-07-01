@@ -102,19 +102,29 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block group relative rounded-2xl overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-primary/5 to-accent-2/5"
+                    className="block group relative rounded-2xl overflow-hidden border border-border/50 aspect-video bg-surface-2"
                   >
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-4xl font-bold gradient-text mb-2">
-                          {project.title === 'StocklaneOS' ? 'StocklaneOS' : 'Taccuino'}
+                    <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border/50 bg-surface">
+                      <span className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-warning/60" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-success/60" />
+                      <span className="ml-3 px-2.5 py-0.5 rounded-md bg-surface-2 text-[11px] text-muted-foreground truncate">
+                        {project.link.replace('https://', '')}
+                      </span>
+                    </div>
+
+                    <div className="absolute inset-0 top-9 bg-gradient-to-br from-primary/10 via-transparent to-accent-2/10 flex items-center justify-center">
+                      <div className="absolute inset-0 opacity-20 animate-gradient" style={{ backgroundImage: 'var(--gradient-1)' }} />
+                      <div className="relative text-center px-6">
+                        <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">
+                          {project.title}
                         </div>
-                        <div className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
-                          Click to view live <ArrowUpRight className="w-3 h-3" />
+                        <div className="text-sm text-muted-foreground flex items-center gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          View live project <ArrowUpRight className="w-3.5 h-3.5" />
                         </div>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </a>
                 </div>
               </div>
