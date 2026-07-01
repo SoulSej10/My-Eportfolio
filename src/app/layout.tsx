@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { Plus_Jakarta_Sans, Newsreader } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import Navbar from "@/components/layout/Navbar"
@@ -7,15 +7,15 @@ import ScrollProgress from "@/components/ui/ScrollProgress"
 import BackToTop from "@/components/ui/BackToTop"
 import CursorGlow from "@/components/ui/CursorGlow"
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-plus-jakarta-sans",
   display: "swap",
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-newsreader",
   display: "swap",
 })
 
@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${plusJakartaSans.variable} ${newsreader.variable}`} suppressHydrationWarning>
 <body className="antialiased">
         <ThemeProvider>
           <Navbar />

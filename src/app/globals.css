@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
+  --font-sans: var(--font-plus-jakarta-sans);
+  --font-serif: var(--font-newsreader);
 
   --color-border: var(--border);
   --color-input: var(--input);
@@ -60,29 +60,29 @@
   --card-hover: #f1f3f8;
   --card-border: #e2e6ef;
 
-  --primary: #6366f1;
+  --primary: #10b981;
   --primary-foreground: #ffffff;
   --secondary: #e8eaf6;
   --secondary-foreground: #1a1d2e;
 
-  --accent: #6366f1;
+  --accent: #10b981;
   --accent-foreground: #ffffff;
-  --accent-2: #a78bfa;
+  --accent-2: #6ee7b7;
 
   --muted: #f1f3f8;
   --muted-foreground: #6b7280;
 
   --border: #e2e6ef;
   --input: #e2e6ef;
-  --ring: #6366f1;
+  --ring: #10b981;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --success: #22c55e;
   --warning: #f59e0b;
 
-  --gradient-1: linear-gradient(135deg, #6366f1, #a78bfa);
-  --gradient-2: linear-gradient(135deg, #6366f1, #06b6d4);
+  --gradient-1: linear-gradient(135deg, #10b981, #6ee7b7);
+  --gradient-2: linear-gradient(135deg, #10b981, #06b6d4);
   --gradient-3: linear-gradient(135deg, #f59e0b, #ef4444);
 }
 
@@ -98,29 +98,29 @@
   --card-hover: #1a1d26;
   --card-border: #1e2230;
 
-  --primary: #818cf8;
+  --primary: #34d399;
   --primary-foreground: #0b0e14;
   --secondary: #1e2230;
   --secondary-foreground: #e2e6ef;
 
-  --accent: #818cf8;
+  --accent: #34d399;
   --accent-foreground: #0b0e14;
-  --accent-2: #a78bfa;
+  --accent-2: #6ee7b7;
 
   --muted: #181b22;
   --muted-foreground: #8b95a5;
 
   --border: #1e2230;
   --input: #1e2230;
-  --ring: #818cf8;
+  --ring: #34d399;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --success: #22c55e;
   --warning: #f59e0b;
 
-  --gradient-1: linear-gradient(135deg, #818cf8, #a78bfa);
-  --gradient-2: linear-gradient(135deg, #818cf8, #22d3ee);
+  --gradient-1: linear-gradient(135deg, #34d399, #6ee7b7);
+  --gradient-2: linear-gradient(135deg, #34d399, #22d3ee);
   --gradient-3: linear-gradient(135deg, #fbbf24, #f87171);
 }
 
@@ -129,14 +129,26 @@ html {
 }
 
 body {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
   background-color: var(--background);
   color: var(--foreground);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+h1, h2, h3, h4, h5, h6,
+.section-heading,
+.heading-serif {
+  font-family: var(--font-serif), Newsreader, Georgia, serif;
+  font-weight: 700;
+}
+
+.serif-italic {
+  font-family: var(--font-serif), Newsreader, Georgia, serif;
+  font-style: italic;
+}
+
 ::selection {
-  background-color: rgba(99, 102, 241, 0.3);
+  background-color: rgba(16, 185, 129, 0.3);
   color: var(--foreground);
 }
 
@@ -248,9 +260,9 @@ body {
 
 .card:hover {
   background: var(--card-hover);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: rgba(16, 185, 129, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.08);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.08);
 }
 
 @keyframes reveal-up {
