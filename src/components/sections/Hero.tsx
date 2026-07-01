@@ -65,7 +65,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                IT Graduate 2024
+                IT Graduate 2025
               </div>
             </div>
           </div>

@@ -43,6 +43,7 @@ export default function Projects() {
                   <div className="flex items-center gap-3 mb-4">
                     <Badge variant="primary">{project.category}</Badge>
                     <Badge variant="success">{project.status}</Badge>
+                    <span className="text-xs text-muted-foreground">{project.year}</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-bold mb-3">
@@ -144,6 +145,7 @@ export default function Projects() {
                   <div className="flex items-center gap-2 mb-3">
                     <Badge variant="primary">{project.category}</Badge>
                     <Badge variant="success">{project.status}</Badge>
+                    <span className="text-xs text-muted-foreground">{project.year}</span>
                   </div>
 
                   <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
