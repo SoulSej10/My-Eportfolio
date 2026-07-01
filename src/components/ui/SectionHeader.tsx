@@ -13,7 +13,7 @@ export function SectionHeader({ title, subtitle, className, align = "center" }: 
   return (
     <div
       className={cn(
-        "max-w-2xl mb-12 sm:mb-16",
+        "max-w-2xl mb-10 sm:mb-12",
         align === "center" ? "mx-auto text-center" : "text-left",
         className
       )}

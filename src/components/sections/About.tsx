@@ -13,12 +13,12 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative py-24 sm:py-32 overflow-hidden"
+      className="relative py-20 sm:py-28 overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="section-heading mb-4">
             <span className="gradient-text">About Me</span>
           </h2>

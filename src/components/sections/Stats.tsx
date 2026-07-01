@@ -57,7 +57,7 @@ export default function Stats() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-16 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent-2/5 to-primary/5" />
 
       <div

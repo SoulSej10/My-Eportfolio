@@ -22,7 +22,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="relative py-24 sm:py-32 overflow-hidden"
+      className="relative py-20 sm:py-28 overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background pointer-events-none" />
 

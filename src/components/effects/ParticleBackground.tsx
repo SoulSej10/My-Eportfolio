@@ -61,15 +61,15 @@ export default function ParticleBackground() {
         canvas.width * 0.2, canvas.height * 0.2, 0,
         canvas.width * 0.2, canvas.height * 0.2, Math.max(canvas.width, canvas.height) * 0.8
       )
-      gradient1.addColorStop(0, 'rgba(99, 102, 241, 0.03)')
-      gradient1.addColorStop(1, 'rgba(99, 102, 241, 0)')
+      gradient1.addColorStop(0, 'rgba(19, 126, 76, 0.03)')
+      gradient1.addColorStop(1, 'rgba(19, 126, 76, 0)')
 
       const gradient2 = ctx.createRadialGradient(
         canvas.width * 0.8, canvas.height * 0.8, 0,
         canvas.width * 0.8, canvas.height * 0.8, Math.max(canvas.width, canvas.height) * 0.8
       )
-      gradient2.addColorStop(0, 'rgba(167, 139, 250, 0.02)')
-      gradient2.addColorStop(1, 'rgba(167, 139, 250, 0)')
+      gradient2.addColorStop(0, 'rgba(127, 185, 156, 0.02)')
+      gradient2.addColorStop(1, 'rgba(127, 185, 156, 0)')
 
       ctx.fillStyle = gradient1
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -102,7 +102,7 @@ export default function ParticleBackground() {
 
           if (dist2 < 100) {
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.03 * (1 - dist2 / 100)})`
+            ctx.strokeStyle = `rgba(19, 126, 76, ${0.025 * (1 - dist2 / 100)})`
             ctx.lineWidth = 0.4
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(p2.x, p2.y)
@@ -112,7 +112,7 @@ export default function ParticleBackground() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`
+        ctx.fillStyle = `rgba(19, 126, 76, ${p.opacity})`
         ctx.fill()
       })
 
