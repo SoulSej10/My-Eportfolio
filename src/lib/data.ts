@@ -198,9 +198,9 @@ export const projects = [
     isFeatured: true,
   },
   {
-    title: "Penmaster",
+    title: "Gazetta",
     description: "A social media post scheduler that automates content generation with OpenAI and automates posting workflows with n8n.",
-    longDescription: "Penmaster (SMP Post Scheduler) automates social media postings end-to-end — integrating OpenAI to generate on-brand content and n8n to orchestrate the backend scheduling and publishing flow.",
+    longDescription: "Gazetta (SMP Post Scheduler) automates social media postings end-to-end — integrating OpenAI to generate on-brand content and n8n to orchestrate the backend scheduling and publishing flow.",
     tech: ["Next.js", "OpenAI API", "n8n", "Tailwind CSS"],
     category: "Full-Stack Application",
     status: "Live",
