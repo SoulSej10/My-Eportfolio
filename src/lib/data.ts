@@ -171,6 +171,11 @@ export const projects = [
     year: "2026",
     link: "https://frontend-nu-smoky-44.vercel.app/",
     github: "",
+    images: [
+      "/images/stocklaneos-dashboard.png",
+      "/images/stocklaneos-products.png",
+      "/images/stocklaneos-reports.png",
+    ],
     features: [
       "Real-time inventory tracking",
       "Analytics & reporting dashboard",
@@ -189,6 +194,10 @@ export const projects = [
     year: "2025",
     link: "https://taccuino-iota.vercel.app/",
     github: "",
+    images: [
+      "/images/taccuino-dashboard.png",
+      "/images/taccuino-notes.png",
+    ],
     features: [
       "Rich markdown editor",
       "Notebook organization system",
@@ -207,6 +216,10 @@ export const projects = [
     year: "2025",
     link: "https://smp-post-scheduler.vercel.app",
     github: "https://github.com/SoulSej10/SMP-Post-Scheduler",
+    images: [
+      "/images/gazetta-dashboard.png",
+      "/images/gazetta-calendar.png",
+    ],
     features: [
       "AI-generated social media content",
       "Automated posting via n8n workflows",
