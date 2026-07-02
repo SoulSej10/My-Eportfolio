@@ -75,7 +75,7 @@ export default function Hero() {
               <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 via-accent-2/20 to-primary/20 rounded-3xl blur-xl opacity-50" />
               <div className="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem] rounded-2xl overflow-hidden border border-border/50 shadow-lg">
                 <Image
-                  src="/images/JessAnthonyTahilProfilePic.jpg"
+                  src="/images/profile.png"
                   alt={personalInfo.name}
                   fill
                   className="object-cover object-top"
